@@ -68,7 +68,7 @@ GETS/
 
 ### Results table
 
-Current results: (ECE(1e-2); Most of them achieve SOTA)
+Current results: (ECE(1e-2); Most of them achieve SOTA; Note that results may vary in different machines)
 | **Dataset**        | **Classifier** | **Uncal**               | **TS**                 | **VS**                 | **ETS**                | **CaGCN**              | **GATS**               | **GETS**               |
 |--------------------|----------------|-------------------------|------------------------|------------------------|------------------------|------------------------|------------------------|------------------------|
 | **Citeseer**        | GCN            | 20.51 ± 2.94            | 3.10 ± 0.34            | 2.82 ± 0.56            | 3.06 ± 0.33            | 2.79 ± 0.37            | 3.36 ± 0.68            | **2.50 ± 1.42**        |
