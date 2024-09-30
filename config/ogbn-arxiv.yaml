@@ -4,7 +4,7 @@ calibration:
   cal_lr: 0.01
   cal_weight_decay: 0
   num_bin: 10
-  calibrator_name: MoE
+  calibrator_name: GETS
   dist_to_train: ~
   heads: 2
   bias: 1

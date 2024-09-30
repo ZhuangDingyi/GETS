@@ -17,6 +17,7 @@ $ conda activate GETS
 
 To install all the required packages, kindly run
 ```Console
+$ chmod +x install.sh
 $ ./install.sh
 ```
 
@@ -29,9 +30,13 @@ To run a simple test model, just:
 python main.py --dataset=cora --gpu=0 --n_runs=10
 ```
 
-### Structure of codes
+To run all the methods and all codes with logs stored in `./log`, results stored in `./output`:
+```Console
+$ ./run_all.sh
+```
 
-# Project Structure
+
+### Structure of codes
 
 GETS/
 - **dataset/**: Dataset processing module
@@ -41,10 +46,10 @@ GETS/
   - `expManager.py`: Manages experiment setup and execution.
   - `solver.py`: Handles optimization or solver logic for training models.
   
-- **model/**: Model implementations (GNNs, MoE, etc.)
+- **model/**: Model implementations
   - `calibrator.py`: Implements model calibration methods.
   - `gnns.py`: Graph Neural Networks model definitions.
-  - `moe.py`: Mixture of Experts model definitions.
+  - `GETS.py`: Our method based on Mixture of Experts model.
   
 - **utils/**: Utility functions for logging and tracking
   - `logger.py`: Manages logging of project execution.

@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 import math
 import matplotlib.pyplot as plt
-from model.calibrator import TS, ETS, VS, CaGCN, GATS, CaGCN_MoE
+from model.calibrator import TS, ETS, VS, CaGCN, GATS, CaGCN_GETS
 
 class Solver:
     def __init__(self, conf, dataset):
@@ -123,7 +123,7 @@ class Solver:
         
         model.eval()
         with torch.no_grad():
-            if self.calibrator_name == 'MoE' and mode == 'calibration':
+            if self.calibrator_name == 'GETS' and mode == 'calibration':
                 logits, _, node_gates = model(self.dataset.g, self.dataset.features)                
             else:
                 logits = model(self.dataset.g, self.dataset.features)
@@ -149,7 +149,7 @@ class Solver:
         others = {}
         model.eval()
         with torch.no_grad():
-            if self.calibrator_name == 'MoE' and mode == 'calibration':
+            if self.calibrator_name == 'GETS' and mode == 'calibration':
                 logits, _, node_gates = model(self.dataset.g, self.dataset.features)
                 others['node_gates'] = node_gates
             else:
@@ -220,8 +220,8 @@ class Solver:
         return weighted_sum_diff, degree_confidence_bined_df, degree_accuracy_bined_df, degree_diff_bined_df
 
     def _calibrate(self):
-        if self.calibrator_name == 'MoE':
-            self.calibrated_model = CaGCN_MoE(
+        if self.calibrator_name == 'GETS':
+            self.calibrated_model = CaGCN_GETS(
                     self.model,
                     self.dataset.features.shape[1],
                     self.dataset.num_classes,

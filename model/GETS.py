@@ -1,6 +1,3 @@
-# Note:
-# Adapted form https://raw.githubusercontent.com/davidmrau/mixture-of-experts/master/moe.py
-
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -10,7 +7,10 @@ from torch.distributions.normal import Normal
 import numpy as np
 import networkx as nx
 
-class GCN_MoE(torch.nn.Module):
+# Adapted form https://raw.githubusercontent.com/davidmrau/mixture-of-experts/master/GETS.py
+
+
+class GCN_GETS(torch.nn.Module):
     def __init__(self,
                  num_classes, 
                  hidden_dim, 
@@ -70,7 +70,7 @@ class GCN_MoE(torch.nn.Module):
                 x = F.dropout(x, self.dropout_rate, self.training)
         return x
     
-class GAT_MoE(torch.nn.Module):
+class GAT_GETS(torch.nn.Module):
     def __init__(self,
                  num_classes,  
                  hidden_dim, 
@@ -135,7 +135,7 @@ class GAT_MoE(torch.nn.Module):
         return x
     
 
-class GIN_MoE(torch.nn.Module):
+class GIN_GETS(torch.nn.Module):
     def __init__(self,
                  num_classes, 
                  hidden_dim, 
@@ -201,7 +201,7 @@ class GIN_MoE(torch.nn.Module):
                 x = F.relu(x)
                 x = F.dropout(x, self.dropout_rate, training=self.training)
         return x
-class MoE(nn.Module):
+class GETS(nn.Module):
 
     """Call a Sparsely gated mixture of experts layer with 1-layer Feed-Forward networks as experts.
     Args:
@@ -226,7 +226,7 @@ class MoE(nn.Module):
                  coef,
                  device,
                  backbone='gcn'):
-        super(MoE, self).__init__()
+        super(GETS, self).__init__()
         self.noisy_gating = noisy_gating
         self.num_experts = len(expert_configs)
         self.k = expert_select # an integer - how many experts to use for each batch element
@@ -239,7 +239,7 @@ class MoE(nn.Module):
         self.proj_feature = nn.Linear(feature_dim, feature_hidden_dim)
         if backbone == 'gcn':
             self.experts = nn.ModuleList([
-                GCN_MoE(
+                GCN_GETS(
                     num_classes=num_classses, 
                     hidden_dim=hidden_dim,
                     dropout_rate=dropout_rate,
@@ -252,7 +252,7 @@ class MoE(nn.Module):
                 ) for i in range(self.num_experts)])
         elif backbone == 'gat':
             self.experts = nn.ModuleList([
-                GAT_MoE(
+                GAT_GETS(
                     num_classes=num_classses, 
                     hidden_dim=hidden_dim,
                     dropout_rate=dropout_rate,
@@ -265,7 +265,7 @@ class MoE(nn.Module):
                 ) for i in range(self.num_experts)])
         elif backbone =='gin':
             self.experts = nn.ModuleList([
-                GIN_MoE(
+                GIN_GETS(
                     num_classes=num_classses, 
                     hidden_dim=hidden_dim,
                     dropout_rate=dropout_rate,

@@ -5,7 +5,7 @@ calibration:
   cal_weight_decay: 0.01
 
   num_bin: 10
-  calibrator_name: MoE
+  calibrator_name: GETS
   backbone: gcn
   hidden_dim: 16
   cal_dropout: 0.2

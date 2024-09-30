@@ -41,7 +41,7 @@ def load_conf(path:str = None, dataset:str = None):
     conf = open(path, "r").read()
     conf = yaml.load(conf)
 
-    if conf['calibration']['calibrator_name'] == 'MoE':
+    if conf['calibration']['calibrator_name'] == 'GETS':
         conf = open("gets_"+path, "r").read()
         conf = yaml.load(conf)
 

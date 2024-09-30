@@ -10,7 +10,7 @@ from torch.nn import functional as F
 from torch_geometric.nn import GCNConv
 import dgl
 import dgl.nn as dglnn
-from model.moe import MoE
+from model.GETS import GETS
 
 
 def fit_calibration(temp_model, eval, g, features, labels, masks, epochs, patience):
@@ -273,13 +273,13 @@ class CaGCN(nn.Module):
         fit_calibration(self, eval, g, features, labels, masks, self.conf.calibration["epochs"], self.conf.calibration["patience"])
         return self
 
-class CaGCN_MoE(nn.Module):
+class CaGCN_GETS(nn.Module):
     def __init__(self, model, feature_dim, num_class, device, conf):
         super().__init__()
         self.model = model
         self.device = device
 
-        self.learner = MoE(
+        self.learner = GETS(
             num_classses=num_class,
             hidden_dim=conf.calibration["hidden_dim"],
             dropout_rate=conf.calibration["cal_dropout"],

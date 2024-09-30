@@ -91,7 +91,7 @@ class Logger(object):
     
     def save(self):
         
-        if self.conf.calibration['calibrator_name']=='MoE':            
+        if self.conf.calibration['calibrator_name']=='GETS':            
             backbone = self.conf.calibration['backbone']
             torch.save(self.results,f'{self.root_dir}/{backbone}_results.pt')
         else:
