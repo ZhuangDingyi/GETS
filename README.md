@@ -3,9 +3,15 @@ Codes for paper **GETS: Nodewise Ensemble Calibration for Graph Neural Networks*
 ICLR 2025 submission number: 2271
 
 
-### Graph ensemble calibration
-This repository includes the implementation of uncertainty calibration methods for graph neural networks based on ensemble strategies. Both input ensemble and model ensemble are included. The goal is to improve the calibration of a classifier's predicted class probabilities; well-calibrated predictions are those that match the true class probabilities. 
 
+This repository provides the implementation of **Graph Ensemble Temperature Scaling (GETS)**, a novel uncertainty calibration framework for Graph Neural Networks (GNNs). GETS leverages ensemble strategies to address the unique challenges of calibrating graph-based models by utilizing both **input ensembles** (logits, features, and node degrees) and **model ensembles** (multiple expert models). 
+
+### Graph ensemble calibration
+The core objective of this repository is to enhance the calibration of a classifier's predicted class probabilities, ensuring that the model's confidence aligns with the actual likelihood of the predicted class being correct. 
+
+In contrast to traditional post-hoc calibration methods like **Temperature Scaling (TS)**, GETS introduces a node-wise calibration approach that dynamically selects the most appropriate calibration expert for each node, depending on its structural and feature-based characteristics. 
+
+This repository includes comparisons with state-of-the-art calibration techniques such as **TS**, **Vector Scaling (VS)**, **Ensemble Temperature Scaling (ETS)**, and graph-specific calibration methods like **CaGCN** and **GATS**. By combining the power of ensemble learning and GNN architectures, GETS offers a scalable and efficient solution for improving calibration in both small and large-scale graph datasets.
 ### Installation
 
 Python version: `3.12.5`
