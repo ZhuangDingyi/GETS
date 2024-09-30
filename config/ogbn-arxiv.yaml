@@ -1,0 +1,22 @@
+calibration:
+  epochs: 1000
+  patience: 50
+  cal_lr: 0.01
+  cal_weight_decay: 0
+  num_bin: 10
+  calibrator_name: MoE
+  dist_to_train: ~
+  heads: 2
+  bias: 1
+  cal_dropout: 0.5
+gnn:
+  type: gcn
+  num_layer: 2
+  hid_dim: 256
+  dropout: 0.5
+  norm: True
+train:
+  epochs: 500
+  lr: 1e-2
+  weight_decay: 0
+  patience: ~

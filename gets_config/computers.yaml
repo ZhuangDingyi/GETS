@@ -1,0 +1,48 @@
+calibration:
+  epochs: 1000
+  patience: 50
+  cal_lr: 0.1
+  cal_weight_decay: 0
+
+  num_bin: 10
+  calibrator_name: MoE
+  backbone: gcn
+  hidden_dim: 16
+  cal_dropout: 0.8
+  cal_num_layer: 2
+  expert_select: 2
+  expert_configs: [
+    [logits],
+    [features],
+    [degrees],
+    [logits, features],
+    [features, degrees],
+    [logits, degrees],
+    [logits, features, degrees]
+  ]
+  # expert_configs: [
+  #   [logits],
+  #   [logits],
+  #   [logits],
+  #   [logits],
+  #   [logits],
+  #   [logits],
+  #   [logits],
+  # ]
+  feature_hidden_dim: 64
+  degree_hidden_dim: 16
+  noisy_gating: True
+  coef: 1.0
+
+gnn:
+  type: gcn
+  num_layer: 2
+  hid_dim: 64
+  dropout: 0.8
+  norm: ~
+
+train:
+  epochs: 100000
+  lr: 1e-2
+  weight_decay: 1e-3
+  patience: 50
