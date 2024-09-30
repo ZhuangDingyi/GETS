@@ -31,36 +31,35 @@ python main.py --dataset=cora --gpu=0 --n_runs=10
 
 ### Structure of codes
 
-GETS/
-├── dataset/                     # Dataset processing module
-│   └── dataset.py
-├── exp/                         # Experiment management and solvers
-│   ├── expManager.py
-│   └── solver.py
-├── model/                       # Model implementations (GNNs, MoE, etc.)
-│   ├── calibrator.py
-│   ├── gnns.py
-│   └── moe.py
-├── utils/                       # Utility functions for logging and tracking
-│   ├── logger.py
-│   ├── recorder.py
-│   └── utils.py
-├── README.md                    # Project documentation and usage instructions
-├── automl.py                    # Automated Machine Learning script
-├── install.sh                   # Installation script for setting up the environment
-├── main.py                      # Main entry point for the project
-├── requirements.txt             # Python dependencies for the project
-└── visualize.py                 # Visualization script for data or results
+# Project Structure
 
-- **`dataset/`**: Handles dataset loading and preprocessing through the `dataset.py` script.
-- **`exp/`**: Manages the experimental pipeline. `expManager.py` handles the setup and execution of experiments, while `solver.py` contains optimization logic.
-- **`model/`**: Includes different model architectures like Graph Neural Networks (`gnns.py`) and Mixture of Experts (`moe.py`), with calibration functionalities (`calibrator.py`).
-- **`utils/`**: Contains helper scripts such as `logger.py` for logging, `recorder.py` for recording experiment metrics, and `utils.py` for general utility functions.
-- **`automl.py`**: Script dedicated to performing automated machine learning tasks, likely optimizing models or hyperparameters.
-- **`install.sh`**: Shell script to automatically install the necessary dependencies for the project.
-- **`main.py`**: The main script to run the project, which likely orchestrates the training, evaluation, or testing processes.
-- **`requirements.txt`**: Specifies all required Python packages for setting up the environment.
-- **`visualize.py`**: Script for visualizing results or data, possibly generating plots for metrics or model performance.
+GETS/
+- **dataset/**: Dataset processing module
+  - `dataset.py`: Script for loading and processing datasets.
+  
+- **exp/**: Experiment management and solvers
+  - `expManager.py`: Manages experiment setup and execution.
+  - `solver.py`: Handles optimization or solver logic for training models.
+  
+- **model/**: Model implementations (GNNs, MoE, etc.)
+  - `calibrator.py`: Implements model calibration methods.
+  - `gnns.py`: Graph Neural Networks model definitions.
+  - `moe.py`: Mixture of Experts model definitions.
+  
+- **utils/**: Utility functions for logging and tracking
+  - `logger.py`: Manages logging of project execution.
+  - `recorder.py`: Tracks and records experiment metrics.
+  - `utils.py`: Miscellaneous helper functions.
+  
+- **README.md**: Project documentation and usage instructions.
+  
+- **automl.py**: Automated Machine Learning script for optimizing models.
+  
+- **install.sh**: Installation script for setting up the environment.
+
+- **main.py**: Main entry point for running the project.
+
+- **visualize.py**: Script for visualizing results or data.
 
 ### Results table
 
