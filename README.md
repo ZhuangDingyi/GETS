@@ -66,7 +66,7 @@ GETS/
 
 - **visualize.py**: Script for visualizing results or data.
 
-### Results table
+### Table of results
 
 Current results: (ECE(1e-2); Most of them achieve SOTA; Note that results may vary in different machines)
 | **Dataset**        | **Classifier** | **Uncal**               | **TS**                 | **VS**                 | **ETS**                | **CaGCN**              | **GATS**               | **GETS**               |
