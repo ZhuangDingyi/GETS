@@ -36,15 +36,11 @@ def fit_calibration(temp_model, eval, g, features, labels, masks, epochs, patien
         loss = F.cross_entropy(calibrated[train_idx], labels[train_idx])
         if loss_load is not None:
             loss += loss_load
-        # dist_reg = intra_distance_loss(calibrated[train_mask], labels[train_mask])
-        # margin_reg = 0.
-        # loss = loss + margin_reg * dist_reg
         loss.backward()
         temp_model.optimizer.step()
 
         with torch.no_grad():
             temp_model.eval()
-            # calibrated = eval(logits)
             ret = eval(logits)
             loss_load = None
             if isinstance(ret, tuple):
@@ -52,8 +48,6 @@ def fit_calibration(temp_model, eval, g, features, labels, masks, epochs, patien
             else:
                 calibrated = ret
             val_loss = F.cross_entropy(calibrated[val_idx], labels[val_idx])
-            # dist_reg = intra_distance_loss(calibrated[train_mask], labels[train_mask])
-            # val_loss = val_loss + margin_reg * dist_reg
             flag = False
             if val_loss <= vlss_mn:
                 flag = True
@@ -297,9 +291,6 @@ class CaGCN_GETS(nn.Module):
         self.conf = conf
         
     def forward(self, g, features):
-        # logits = self.model(g, features)
-        # temperature = self.graph_temperature_scale(logits, g)
-        # return logits * F.softplus(temperature)
         logits = self.model(g, features)
         return self.learner(g, logits, features)
     

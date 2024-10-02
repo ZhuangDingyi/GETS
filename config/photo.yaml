@@ -16,7 +16,7 @@ gnn:
   dropout: 0.8
   norm: ~
 train:
-  epochs: 100000
+  epochs: 200
   lr: 1e-2
   weight_decay: 1e-3
   patience: 50

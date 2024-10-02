@@ -38,9 +38,10 @@ python main.py --dataset=cora --gpu=0 --n_runs=10
 
 To run all the methods and all codes with logs stored in `./log`, results stored in `./output`:
 ```Console
+$ chmod +x run_all.sh
 $ ./run_all.sh
 ```
-
+In order to customize your settings, kindly change the parameters within `./config` folder. If you are also trying to use GETS model, please remember to specify the configurations in `gets_config` folder as well.
 
 ### Structure of codes
 

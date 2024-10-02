@@ -83,26 +83,7 @@ class Dataset:
             np.random.shuffle(idx)
             split_res = np.split(idx, [int(0.2 * len(idx)), int(0.3 * len(idx))])
             train_idx, val_idx, test_idx = split_res[0], split_res[1], split_res[2]
-            # 20 sample per class for training
-            # 30 sample per class for validation
-            # All the rest for testing
-            # train_samples_per_class = 20
-            # val_samples_per_class = 30
-
-            # labels = np.array(self.labels.cpu())
-            # unique_labels = np.unique(labels)
-
-            # train_idx = []
-            # val_idx = []
-            # test_idx = []
-
-            # for label in unique_labels:
-            #     label_idxs = np.where(labels == label)[0]
-            #     np.random.shuffle(label_idxs)
-            #     train_idx.extend(label_idxs[:train_samples_per_class])
-            #     val_idx.extend(label_idxs[train_samples_per_class:train_samples_per_class + val_samples_per_class])
-            #     test_idx.extend(label_idxs[train_samples_per_class + val_samples_per_class:])
-            
+ 
             for _ in range(self.n_runs):
                 train_idxs.append(np.array(train_idx))
                 val_idxs.append(np.array(val_idx))
