@@ -22,7 +22,7 @@ This folder contains the scripts and data for analyzing the convergence patterns
    - Calculated variability (e.g., standard deviation) of node gate distributions over training epochs to capture how the model’s focus shifts during training. See file `PR.Plot_Gating_Scores.ipynb`.
 
 3. **Quantitative Analysis**:
-   - Calculated the Pearson correlation coefficient and \( R^2 \) between node gate variability and training loss to quantify their relationship. See file `PR.Analyze_Gating_vs_Training_Loss.ipynb`.
+   - Calculated the Pearson correlation coefficient between node gate variability and training loss to quantify their relationship. See file `PR.Analyze_Gating_vs_Training_Loss.ipynb`.
 
 ---
 
