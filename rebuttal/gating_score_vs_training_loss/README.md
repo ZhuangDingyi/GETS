@@ -2,7 +2,7 @@
 
 ## Description
 
-This folder contains the scripts and data for analyzing the convergence patterns of different datasets using node gate variability and training loss trends. The focus is on understanding how variability in node gate distributions correlates with training loss during model training.
+This folder contains the scripts for analyzing the convergence patterns of different datasets using node gate variability and training loss trends. The focus is on understanding how variability in node gate distributions correlates with training loss during model training.
 
 ### Key Objectives:
 1. Analyze node gate variability during training for multiple datasets.
