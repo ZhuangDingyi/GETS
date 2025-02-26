@@ -1,8 +1,6 @@
 Codes for paper **GETS: Nodewise Ensemble Calibration for Graph Neural Networks**
 
-ICLR 2025 submission number: 2271
-
-
+> - [arXiv paper](https://arxiv.org/abs/2410.09570) | [OpenReview](https://openreview.net/forum?id=qgsXsqahMq), ICLR 2025 Spotlight
 
 This repository provides the implementation of **Graph Ensemble Temperature Scaling (GETS)**, a novel uncertainty calibration framework for Graph Neural Networks (GNNs). GETS leverages ensemble strategies to address the unique challenges of calibrating graph-based models by utilizing both **input ensembles** (logits, features, and node degrees) and **model ensembles** (multiple expert models). 
 
@@ -108,3 +106,15 @@ Current ECE(1e-2) results:
 | **Reddit**          | GCN            | 6.97 ± 0.10             | 1.72 ± 0.07            | 2.02 ± 0.07            | 1.72 ± 0.07            | 1.50 ± 0.08            | OOM                    | **1.49 ± 0.07**        |
 |                    | GAT            | 4.75 ± 0.15             | 3.26 ± 0.08            | 3.43 ± 0.10            | 3.52 ± 0.10            | 0.81 ± 0.09            | OOM                    | **0.62 ± 0.08**        |
 |                    | GIN            | 3.22 ± 0.09             | 3.17 ± 0.13            | 3.19 ± 0.10            | 3.25 ± 0.14            | 1.63 ± 0.21            | OOM                    | **1.57 ± 0.12**        |
+
+
+If this work is helpful for your research, please consider citing the following BibTeX entry.
+
+``` bibtex
+@article{zhuang2024gets,
+  title={GETS: Ensemble Temperature Scaling for Calibration in Graph Neural Networks},
+  author={Zhuang, Dingyi and Jiang, Chonghe and Zheng, Yunhan and Wang, Shenhao and Zhao, Jinhua},
+  journal={ICLR},
+  year={2024}
+}
+```
